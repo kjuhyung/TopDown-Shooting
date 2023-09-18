@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,12 +30,26 @@ public class TopDownShooting : MonoBehaviour
         _aimDirection = newAimDirection;
     }
 
-    private void OnShoot()
+    private void OnShoot(AttackSO attackSO)
     {
-        CreateProjectile();
+        RangedAttackData rangedAttackData = attackSO as RangedAttackData;
+        float projectilesAngleSpace = rangedAttackData.multipleProjectilesAngel;
+        int numberOfProjectilesPerShot = rangedAttackData.numberOfProjectilesPerShot;
+
+        float minAngle = -(numberOfProjectilesPerShot / 2f) * projectilesAngleSpace + 0.5f * rangedAttackData.multipleProjectilesAngel;
+        // 부채꼴로 발사하기
+
+        for (int i = 0; i < numberOfProjectilesPerShot; i++)
+        {
+            // 화살 사이사이의 각
+            float angle = minAngle + projectilesAngleSpace * i;
+            float randomSpread = Random.Range(-rangedAttackData.spread, rangedAttackData.spread);
+            angle += randomSpread;
+            CreateProjectile(rangedAttackData, angle);
+        }       
     }
 
-    private void CreateProjectile()
+    private void CreateProjectile(RangedAttackData rangedAttackData, float angle)
     {
         // Test Code 화살 생성
         Instantiate(testPrefab, projectileSpawnPosition.position,Quaternion.identity);       
