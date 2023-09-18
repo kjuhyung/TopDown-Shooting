@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class TopDownShooting : MonoBehaviour
 {
+    private ProjectileManager _projectileManager;
     private TopDownCharacterController _controller;
 
     [SerializeField] private Transform projectileSpawnPosition;
     private Vector2 _aimDirection = Vector2.right;
 
-    public GameObject testPrefab;
+    
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class TopDownShooting : MonoBehaviour
 
     void Start()
     {
+        _projectileManager = ProjectileManager.instance;
         // 이벤트 구독
         _controller.OnAttackEvent += OnShoot;
         _controller.OnLookEvent += OnAim;
@@ -51,7 +53,15 @@ public class TopDownShooting : MonoBehaviour
 
     private void CreateProjectile(RangedAttackData rangedAttackData, float angle)
     {
-        // Test Code 화살 생성
-        Instantiate(testPrefab, projectileSpawnPosition.position,Quaternion.identity);       
+        _projectileManager.ShootBullet(
+            projectileSpawnPosition.position,
+            RotateVector2(_aimDirection,angle),
+            rangedAttackData);
+        // 발사위치, 회전각, 공격데이터
+    } 
+    private static Vector2 RotateVector2(Vector2 v, float degree)
+    {
+        // 벡터(v)를 쿼터니언(각도)만큼 회전시킨다.
+        return Quaternion.Euler(0, 0, degree) * v;
     }
 }
