@@ -19,8 +19,9 @@ public class TopDownAimRotation : MonoBehaviour
 
     void Start()
     {
-        _controller.OnLookEvent += OnAim;
         // 이벤트 구독
+        _controller.OnLookEvent += OnAim;
+        
     }
 
     public void OnAim(Vector2 newAimDirection)
@@ -29,15 +30,18 @@ public class TopDownAimRotation : MonoBehaviour
     }
     private void RotateArm(Vector2 direction)
     {
-        float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         // 아크탄젠트 구하기 , 각도
-        // 0 ~ 3.14 라디안 값 * 디그리값 = 0 도부터 360도 Euler 값으로 만듬
+        // 아크탄젠트 값 = 0 ~ 3.14 라디안 값
+        // 곱하기 Rad2Deg = 0도부터 360도 Euler 값으로 만듬
+        float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // z값이 90 이상이면 Y를 뒤집기
+        // flipY bool 값으로 캐릭터도 뒤집기
+        // 구한 Euler 값으로 armPivot 의 z값 변경 = 회전
 
         armRenderer.flipY = Mathf.Abs(rotZ) > 90f;
-        characterRenderer.flipX = armRenderer.flipY;
-        // z값이 90 이상이면 Y를 뒤집기
-        // 그 뒤집히거나 안 뒤집혔다는 bool 값으로 캐릭터도 뒤집기
+        characterRenderer.flipX = armRenderer.flipY;        
         armPivot.rotation = Quaternion.Euler(0, 0, rotZ);
-        // 구한 Euler 값으로 armPivot 의 z값 변경 = 회전
+        
     }
 }

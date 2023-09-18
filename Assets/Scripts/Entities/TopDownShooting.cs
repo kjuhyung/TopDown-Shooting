@@ -19,12 +19,14 @@ public class TopDownShooting : MonoBehaviour
 
     void Start()
     {
+        // 이벤트 구독
         _controller.OnAttackEvent += OnShoot;
         _controller.OnLookEvent += OnAim;
     }
 
     private void OnAim(Vector2 newAimDirection)
     {
+        // 방향 받기
         _aimDirection = newAimDirection;
     }
 
@@ -35,6 +37,7 @@ public class TopDownShooting : MonoBehaviour
 
     private void CreateProjectile()
     {
+        // Test Code 화살 생성
         Instantiate(testPrefab, projectileSpawnPosition.position,Quaternion.identity);       
     }
 }

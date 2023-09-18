@@ -15,18 +15,20 @@ public class PlayerInputController : TopDownCharacterController
     public void OnMove(InputValue value)
     {
         // Debug.Log("OnMove" + value.ToString());
+        // 입력값을 moveInput 에 할당해서 CallMoveEvent 실행
+
         Vector2 moveInput = value.Get<Vector2>().normalized;       
         CallMoveEvent(moveInput);
-        // 입력값을 moveInput 에 할당해서 CallMoveEvent 실행
     }
     public void OnLook(InputValue value)
-    { 
+    {
         // Debug.Log("OnLook" + value.ToString());
-        Vector2 newAim = value.Get<Vector2>();
-        Vector2 worldPos = _camera.ScreenToWorldPoint(newAim);
         // 스크린 좌표를 월드 좌표로 변환 - 마우스 위치
-        newAim = (worldPos - (Vector2)transform.position).normalized;
         // 마우스 위치에서 내 위치를 빼기 - 내가 마우스를 바라보는 방향
+
+        Vector2 newAim = value.Get<Vector2>();
+        Vector2 worldPos = _camera.ScreenToWorldPoint(newAim);        
+        newAim = (worldPos - (Vector2)transform.position).normalized;
 
         if (newAim.magnitude >= .9f)
         {
@@ -35,7 +37,7 @@ public class PlayerInputController : TopDownCharacterController
     }
     public void OnFire(InputValue value)
     {
-        IsAttacking = value.isPressed;
         // 마우스 좌측 버튼을 누르면 True, 아니면 false
+        IsAttacking = value.isPressed;
     }
 }
