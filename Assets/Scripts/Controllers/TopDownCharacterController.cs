@@ -7,7 +7,30 @@ public class TopDownCharacterController : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
     public event Action<Vector2> OnLookEvent;
+    public event Action OnAttackEvent;
     // event - 외부에서는 호출하지 못하게 막는다.
+
+    private float _timeSinceLastAttack = float.MaxValue;
+    protected bool IsAttacking { get; set; }
+
+    protected virtual void Update()
+    {
+        HandleAttackDelay();
+    }
+    // 상속받은 클래스에서 Update 를 다르게 쓰기 위해 virtual 사용
+
+    private void HandleAttackDelay()
+    {
+       if (_timeSinceLastAttack <= 0.2f) // Todo
+       {
+            _timeSinceLastAttack += Time.deltaTime;
+       }
+       if(IsAttacking && _timeSinceLastAttack > 0.2f)
+       {
+            _timeSinceLastAttack = 0;
+            CallAttackEvent();
+       }            
+    }
 
     public void CallMoveEvent(Vector2 direction)
     {
@@ -20,7 +43,17 @@ public class TopDownCharacterController : MonoBehaviour
         OnLookEvent?.Invoke(direction);
     }
 
+    public void CallAttackEvent()
+    {
+        OnAttackEvent?.Invoke();
+    }
+
 }
+
+
+
+
+
 
 
     // {
