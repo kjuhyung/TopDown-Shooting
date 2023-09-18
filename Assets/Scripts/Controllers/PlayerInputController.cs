@@ -6,9 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : TopDownCharacterController
 {
     private Camera _camera;
-
-    private void Awake()
+        
+    protected override void Awake()
     {
+        base.Awake(); // 부모 클래스의 Awake를 먼저 실행
         _camera = Camera.main;
     }
 
