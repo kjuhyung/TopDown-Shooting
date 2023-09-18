@@ -22,7 +22,7 @@ public class TopDownCharacterController : MonoBehaviour
 
     private void HandleAttackDelay()
     {
-       if (_timeSinceLastAttack <= 0.2f) // Todo
+       if (_timeSinceLastAttack <= 0.2f) // TODO
        {
             _timeSinceLastAttack += Time.deltaTime;
        }
