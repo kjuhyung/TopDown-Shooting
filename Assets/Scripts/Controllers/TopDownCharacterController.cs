@@ -12,8 +12,15 @@ public class TopDownCharacterController : MonoBehaviour
 
     private float _timeSinceLastAttack = float.MaxValue;
     protected bool IsAttacking { get; set; }
+    protected CharacterStatsHandler Stats { get; private set; }
 
-    // 상속받은 클래스에서 Update 를 다르게 쓰기 위해 virtual 사용
+    // 상속받은 클래스에서 Awake,Update 다르게 쓰기 위해 virtual 사용
+    protected virtual void Awake()
+    {
+        Stats = GetComponent<CharacterStatsHandler>();
+    }
+
+    
     protected virtual void Update()
     {
         HandleAttackDelay();
@@ -22,11 +29,14 @@ public class TopDownCharacterController : MonoBehaviour
 
     private void HandleAttackDelay()
     {
-       if (_timeSinceLastAttack <= 0.2f) // TODO
+
+        if (Stats.CurrentStats.attackSO == null)
+            return;
+       if (_timeSinceLastAttack <= Stats.CurrentStats.attackSO.delay) 
        {
             _timeSinceLastAttack += Time.deltaTime;
        }
-       if(IsAttacking && _timeSinceLastAttack > 0.2f)
+       if(IsAttacking && _timeSinceLastAttack > Stats.CurrentStats.attackSO.delay)
        {
             _timeSinceLastAttack = 0;
             CallAttackEvent();
