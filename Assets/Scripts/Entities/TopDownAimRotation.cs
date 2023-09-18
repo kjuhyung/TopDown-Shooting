@@ -35,8 +35,9 @@ public class TopDownAimRotation : MonoBehaviour
 
         armRenderer.flipY = Mathf.Abs(rotZ) > 90f;
         characterRenderer.flipX = armRenderer.flipY;
-        // 활이 90도가 넘어가면 캐릭터도 뒤집기
+        // z값이 90 이상이면 Y를 뒤집기
+        // 그 뒤집히거나 안 뒤집혔다는 bool 값으로 캐릭터도 뒤집기
         armPivot.rotation = Quaternion.Euler(0, 0, rotZ);
-        // 구한 Euler 값으로 armPivot 의 z값 변경
+        // 구한 Euler 값으로 armPivot 의 z값 변경 = 회전
     }
 }

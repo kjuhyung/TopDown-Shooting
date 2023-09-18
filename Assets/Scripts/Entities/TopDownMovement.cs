@@ -17,7 +17,7 @@ public class TopDownMovement : MonoBehaviour
     private void Start()
     {
         _controller.OnMoveEvent += Move;
-        // 구독
+        // 이벤트 구독
     }
     private void FixedUpdate()
     {
