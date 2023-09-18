@@ -8,6 +8,8 @@ public class ProjectileManager : MonoBehaviour
 
     public static ProjectileManager instance;
 
+    [SerializeField] private GameObject testObj;
+
     private void Awake()
     {
         instance = this;
@@ -20,7 +22,11 @@ public class ProjectileManager : MonoBehaviour
 
     public void ShootBullet(Vector2 startPosition, Vector2 direction, RangedAttackData attackData)
     {
-        //TODO
+        // TODO
+        GameObject obj = Instantiate(testObj);
+
+        obj.transform.position = startPosition;
+        
     }
 
 }
