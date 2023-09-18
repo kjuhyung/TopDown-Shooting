@@ -35,7 +35,7 @@ public class PlayerInputController : TopDownCharacterController
     }
     public void OnFire(InputValue value)
     {
-
-        Debug.Log("OnFire" + value.ToString());
+        IsAttacking = value.isPressed;
+        // 마우스 좌측 버튼을 누르면 True, 아니면 false
     }
 }
