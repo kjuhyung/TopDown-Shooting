@@ -44,6 +44,14 @@ public class RangedAttackController : MonoBehaviour
         // 이동 처리
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(levelCollisionLayer.value == (levelCollisionLayer.value | (1 << collision.gameObject.layer)))
+        {
+            DestroyProjectile(collision.ClosestPoint(transform.position) - _direction * .2f, fxOnDestroy);
+        }
+    }
+
     public void InitializeAttack(Vector2 direction, RangedAttackData attackData, ProjectileManager projectileManager)
     {
         // 초기화 
