@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1324614780331499033}
   - component: {fileID: 9121137053822908159}
   - component: {fileID: 3330465242714448319}
+  - component: {fileID: 5867688420429329538}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -220,6 +221,22 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 0
+--- !u!114 &5867688420429329538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398102623487406630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8b72e6c86157d4bacedb0a3ac037e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCollisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  fxOnDestroy: 1
 --- !u!1 &5042632314603840314
 GameObject:
   m_ObjectHideFlags: 0

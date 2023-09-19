@@ -38,7 +38,7 @@ public class RangedAttackController : MonoBehaviour
         {
             DestroyProjectile(transform.position, false);
         }
-        // 데이터의 듀레이션보다 지금 듀레이션이 크면 화살 지우기
+        // 데이터의 듀레이션보다 지금 듀레이션이 크면 삭제
 
         _rigidbody.velocity = _direction * _attackData.speed;
         // 이동 처리
