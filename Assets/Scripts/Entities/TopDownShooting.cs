@@ -35,11 +35,12 @@ public class TopDownShooting : MonoBehaviour
     private void OnShoot(AttackSO attackSO)
     {
         RangedAttackData rangedAttackData = attackSO as RangedAttackData;
+        // AttackSO 형식을 RanagedAttackData 형식으로 형변환
         float projectilesAngleSpace = rangedAttackData.multipleProjectilesAngel;
         int numberOfProjectilesPerShot = rangedAttackData.numberOfProjectilesPerShot;
-
+        // 발사각도, 발사개수 들어온 정보로 변수에 할당하기
         float minAngle = -(numberOfProjectilesPerShot / 2f) * projectilesAngleSpace + 0.5f * rangedAttackData.multipleProjectilesAngel;
-        // 부채꼴로 발사하기
+        // 부채꼴로 발사하기 위한 변수 , 최소각도
 
         for (int i = 0; i < numberOfProjectilesPerShot; i++)
         {
