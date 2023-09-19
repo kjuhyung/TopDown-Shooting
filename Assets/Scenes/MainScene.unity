@@ -973,6 +973,7 @@ GameObject:
   m_Component:
   - component: {fileID: 110095474}
   - component: {fileID: 110095475}
+  - component: {fileID: 110095476}
   m_Layer: 0
   m_Name: ProjectileManager
   m_TagString: Untagged
@@ -1009,6 +1010,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _impactParticleSystem: {fileID: 0}
   testObj: {fileID: 398102623487406630, guid: 4ae2a6318001a0c4c90e4ff2a452ff70, type: 3}
+--- !u!114 &110095476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110095473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc8fdfc3c48246429e9f44ce4e4e322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Arrow
+    prefab: {fileID: 398102623487406630, guid: 4ae2a6318001a0c4c90e4ff2a452ff70, type: 3}
+    size: 20
 --- !u!1 &423790209
 GameObject:
   m_ObjectHideFlags: 0
