@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RangedAttackData", menuName = "TopDownController/Attack/Ranged", order = 1)]
