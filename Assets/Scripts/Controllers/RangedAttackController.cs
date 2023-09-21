@@ -96,7 +96,7 @@ public class RangedAttackController : MonoBehaviour
         // 삭제 처리
         if(createFx)
         {
-
+            _projectileManager.CreateImpactParticlesAtPosition(position, _attackData);
         }
         gameObject.SetActive(false);
     }
