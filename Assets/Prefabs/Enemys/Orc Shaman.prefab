@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 8621416871001088132}
   - component: {fileID: 5665131316063016189}
   - component: {fileID: 4408430087843466320}
+  - component: {fileID: 2541262670935124742}
   m_Layer: 6
   m_Name: Orc Shaman
   m_TagString: Untagged
@@ -434,6 +435,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthChangeDelay: 0.5
+--- !u!114 &2541262670935124742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258607459020575793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d2287dd8caf6640b8cf458e766fce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6898159264156935518
 GameObject:
   m_ObjectHideFlags: 0
