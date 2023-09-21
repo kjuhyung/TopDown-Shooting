@@ -19,7 +19,7 @@ public class TopDownContactEnemyController : TopDownEnemyController
         base.FixedUpdate();
 
         Vector2 direction = Vector2.zero;
-        if(DistacneToTarget() < followRange)
+        if(DistanceToTarget() < followRange)
         {
             direction = DirectionToTarget();
         }

@@ -23,7 +23,7 @@ public class TopDownEnemyController : TopDownCharacterController
 
     }
 
-    protected float DistacneToTarget()
+    protected float DistanceToTarget()
     {
         return Vector3.Distance(transform.position, ClosestTarget.position);
     }  // 타겟과 자신 사이의 거리 
