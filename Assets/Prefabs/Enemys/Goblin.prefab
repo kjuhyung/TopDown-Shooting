@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 710397129852210638}
   - component: {fileID: 3422773198407724463}
   - component: {fileID: 8373354421565406139}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 2781089683867583673}
   - component: {fileID: 6796199746287515121}
   - component: {fileID: 1924915995460910058}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
