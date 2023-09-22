@@ -74,6 +74,9 @@ public class CharacterStatsHandler : MonoBehaviour
         CurrentStats.maxHealth = (int)operation(CurrentStats.maxHealth, newModifier.maxHealth);
         CurrentStats.speed = operation(CurrentStats.speed, newModifier.speed);
 
+        if (CurrentStats.attackSO == null || newModifier.attackSO == null)
+            return;
+
         UpdateAttackStats(operation,CurrentStats.attackSO,newModifier.attackSO);
 
         if (CurrentStats.attackSO.GetType() != newModifier.attackSO.GetType())
@@ -89,8 +92,9 @@ public class CharacterStatsHandler : MonoBehaviour
 
     private void UpdateAttackStats(Func<float, float, float> operation,AttackSO currentAttack, AttackSO newAttack)
     {
-        if (currentAttack == null || newAttack == null || currentAttack.GetType() != newAttack.GetType())
+        if (currentAttack == null || newAttack == null)
             return;
+
         currentAttack.delay = operation(currentAttack.delay, newAttack.delay);
         currentAttack.power = operation(currentAttack.power, newAttack.power);
         currentAttack.size = operation(currentAttack.size, newAttack.size);
